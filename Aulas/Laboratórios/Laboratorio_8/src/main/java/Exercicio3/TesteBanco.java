@@ -1,7 +1,4 @@
-package Exercicio1;
-
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-import java.sql.SQLOutput;
+package Exercicio3;
 
 public class TesteBanco {
 
@@ -13,47 +10,46 @@ public class TesteBanco {
         // Criação do primeiro cliente Bruno Henrique e sua respectiva conta com saldo inicial
         Cliente brunoHenrique = new Cliente("Bruno", "Henrique");
         Conta contaBH = new ContaPoupanca(50000, 0.03);
-        brunoHenrique.setConta(contaBH);
+        brunoHenrique.adicionarConta(contaBH);
         System.out.println("Criando uma conta poupança para o cliente " + brunoHenrique.getNome() + " " +
-                brunoHenrique.getSobrenome() + " com saldo de R$: " + brunoHenrique.getConta().getSaldo() +
-                " e taxa de rendimentos de 3%");
+                brunoHenrique.getSobrenome() + "com saldo de R$: " + brunoHenrique.getConta(0).getSaldo() +
+                "e taxa de rendimentos de 3%");
 
         // Criação do primeiro cliente Everton Ribeiro e sua respectiva conta com saldo inicial
         Cliente evertonRibeiro = new Cliente("Everton", "Ribeiro");
         Conta contaER = new ContaCorrente(45000,30000);
-        evertonRibeiro.setConta(contaER);
+        evertonRibeiro.adicionarConta(contaER);
         System.out.println("Criando uma conta corrente para o cliente " + evertonRibeiro.getNome() + " " +
-                evertonRibeiro.getSobrenome() + " com saldo de R$: " + evertonRibeiro.getConta().getSaldo() +
-                " e cheque especial de R$ 30000");
+                evertonRibeiro.getSobrenome() + "com saldo de R$: " + evertonRibeiro.getConta(0).getSaldo() +
+                "e cheque especial de R$ 30000");
 
         // Criação do primeiro cliente Filipe Luis e sua respectiva conta com saldo inicial
         Cliente filipeLuis = new Cliente("Filipe", "Luis");
         Conta contaFilipeLuis = new ContaCorrente(70000);
-        filipeLuis.setConta(contaFilipeLuis);
+        filipeLuis.adicionarConta(contaFilipeLuis);
         System.out.println("Criando uma conta corrente para o cliente " + filipeLuis.getNome() + " " +
-                filipeLuis.getSobrenome() + " com saldo de R$: " + filipeLuis.getConta().getSaldo() +
-                " e sem cheque especial");
+                filipeLuis.getSobrenome() + "com saldo de R$: " + filipeLuis.getConta(0).getSaldo() +
+                "e sem cheque especial");
 
 
         // Criação do primeiro cliente e sua respectiva conta com saldo inicial
         Cliente gabrielBarbosa = new Cliente("Gabriel", "Barbosa");
         Conta contaGB = new ContaPoupanca(220000, 0.03);
-        gabrielBarbosa.setConta(contaGB);
+        gabrielBarbosa.adicionarConta(contaGB);
         System.out.println("Criando uma conta poupança para o cliente " + gabrielBarbosa.getNome() + " " +
-                gabrielBarbosa.getSobrenome() + " com saldo de R$: " + gabrielBarbosa.getConta().getSaldo() +
-                " e taxa de rendimentos de 3%");
+                gabrielBarbosa.getSobrenome() + "com saldo de R$: " + gabrielBarbosa.getConta(0).getSaldo() +
+                "e taxa de rendimentos de 3%");
 
         // Criação do primeiro cliente e sua respectiva conta com saldo inicial
         Cliente diegoAlves = new Cliente("Diego", "Alves");
         Conta contaDA = new ContaCorrente(50000);
-        diegoAlves.setConta(contaDA);
         System.out.println("Criando uma conta corrente para o cliente " + diegoAlves.getNome() + " " +
-                diegoAlves.getSobrenome() + " com saldo de R$: " + diegoAlves.getConta().getSaldo() +
-                " e sem cheque especial");
+                diegoAlves.getSobrenome() + "com saldo de R$: " + diegoAlves.getConta(0).getSaldo() +
+                "e sem cheque especial");
 
         Cliente lorenaLara = new Cliente("Lorena", "Lara");
-        lorenaLara.setConta(contaDA);
-
+        lorenaLara.adicionarConta(contaDA);
+        diegoAlves.adicionarConta(contaDA);
         System.out.println("Diego Alves autorizou o cadastro de sua conta corrente como sendo conjunta com a cliente Lorena Lara");
 
         banco.adicionarCliente(brunoHenrique);
@@ -63,5 +59,18 @@ public class TesteBanco {
         banco.adicionarCliente(diegoAlves);
         banco.adicionarCliente(lorenaLara);
 
+        System.out.println("------------------RELATÓRIO DE TRANSAÇÕES------------------");
+        
+
+        for (int i = 0; i < banco.getNumeroDeClientes(); i++) {
+            Cliente cliente = banco.getCliente(i);
+            Conta conta = cliente.getConta(0);
+
+            String temp = "Cliente [" + (i + 1) + "] : " +
+                          cliente.getNome() + " " +
+                          cliente.getSobrenome() + "." +
+                          " Saldo R$:" + conta.getSaldo();
+            System.out.println(temp);
+        }
     }
 }
