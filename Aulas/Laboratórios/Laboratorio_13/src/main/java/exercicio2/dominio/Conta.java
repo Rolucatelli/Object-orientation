@@ -1,6 +1,6 @@
-package excessoes.exercicio2.banco.dominio;
+package exercicio2.dominio;
 
-import excessoes.exercicio2.banco.dominio.excessoes.ExcecaoChequeEspecial;
+import exercicio2.dominio.excecoes.ExcecaoChequeEspecial;
 
 public class Conta {
 

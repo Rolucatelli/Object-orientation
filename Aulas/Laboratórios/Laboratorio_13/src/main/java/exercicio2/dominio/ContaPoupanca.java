@@ -1,4 +1,4 @@
-package excessoes.exercicio2.banco.dominio;
+package exercicio2.dominio;
 
 public class ContaPoupanca extends Conta {
 

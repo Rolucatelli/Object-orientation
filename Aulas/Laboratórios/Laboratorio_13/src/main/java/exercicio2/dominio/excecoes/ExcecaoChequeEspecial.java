@@ -1,6 +1,6 @@
-package excessoes.exercicio2.banco.dominio.excessoes;
+package exercicio2.dominio.excecoes;
 
-public class ExcecaoChequeEspecial extends java.lang.Exception{
+public class ExcecaoChequeEspecial extends Exception{
     private double deficit;
 
     public ExcecaoChequeEspecial(String mensagem, double deficit){

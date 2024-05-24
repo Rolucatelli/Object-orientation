@@ -1,15 +1,23 @@
-package excessoes.exercicio2.banco.dominio;
+package exercicio2.dominio;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class Banco {
     private ArrayList<Cliente> clientes;
+    private static Banco banco;
 
-    public Banco() {
+    private Banco() {
+
         clientes = new ArrayList<>();
     }
 
+    public static Banco getBanco(){
+        if (banco == null) {
+            banco = new Banco();
+        }
+        return banco;
+    }
     public void adicionarCliente(Cliente cliente) {
         clientes.add(cliente);
     }

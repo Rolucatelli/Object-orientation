@@ -1,4 +1,4 @@
-package excessoes.exercicio1;
+package exercicio1;
 
 public class TesteExcecao {
     public static void main (String [] args) {

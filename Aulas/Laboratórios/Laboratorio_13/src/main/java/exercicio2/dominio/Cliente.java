@@ -1,4 +1,4 @@
-package excessoes.exercicio2.banco.dominio;
+package exercicio2.dominio;
 
 import java.util.ArrayList;
 
